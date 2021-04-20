@@ -129,12 +129,12 @@ class Registration extends React.Component {
           }]}>User Type</Text>  
         <View style={styles.action}>   
         <DropDownPicker
-         style={styles.picker}
+        //  style={styles.picker}
           items={[
               {label: 'User Type', value: 'usertype', untouchable: true}, // North America
               {label: 'Student', value: 'Student', parent: 'na'},
               {label: 'Job Seeker', value: 'Seeker', parent: 'na'},
-              
+
           ]}
 />
 </View>
@@ -214,11 +214,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 30
 },
-  picker:{
-    width: 300,
-    height: 150,
-    borderColor: '#728FCE'
-  },
+  // picker:{
+  //   width: 300,
+  //   height: 150,
+  //   borderColor: '#728FCE'
+  // },
   button: {
     marginTop: 20,
     marginBottom: 20,
