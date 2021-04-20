@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,9 +13,10 @@ import {
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwsome from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable';
-
+import DropDownPicker from 'react-native-dropdown-picker';
 
 class Registration extends React.Component {
+
  constructor()
   {
     super()
@@ -85,10 +87,18 @@ class Registration extends React.Component {
         animation="fadeInUpBig" 
         style={styles.footer}>
 
+
           <Text style={[styles.text_footer, {
             marginTop: 20
           }]}>Full Name</Text>
           <View style={styles.action}>
+
+          <FontAwsome
+              name="user-o"
+              color="#05375a"
+              size={20}
+            />
+
           <TextInput
             placeholder="Name"
             style={styles.textInput}
@@ -96,23 +106,17 @@ class Registration extends React.Component {
             />
           </View>
 
-          {/* <Text style={[styles.text_footer, {
-            marginTop: 20
-          }]}>Gender</Text>
-          <View style={styles.action}>
-          <RadioGroup
-            options={[
-              { id: 1, label: 'male' },
-              { id: 2, label: 'female' },
-            ]}
-            activeButtonId={1}
-          />
-          </View> */}
-
           <Text style={[styles.text_footer, {
             marginTop: 20
           }]}>Email</Text>      
-          <View style={styles.action}>      
+          <View style={styles.action}>   
+
+          <FontAwsome
+              name="user-o"
+              color="#05375a"
+              size={20}
+            />
+
           <TextInput
             placeholder="Email"
             style={styles.textInput}
@@ -121,9 +125,30 @@ class Registration extends React.Component {
         </View>
 
         <Text style={[styles.text_footer, {
+            marginTop: 20
+          }]}>User Type</Text>  
+        <View style={styles.action}>   
+        <DropDownPicker
+         style={styles.picker}
+          items={[
+              {label: 'User Type', value: 'usertype', untouchable: true}, // North America
+              {label: 'Student', value: 'Student', parent: 'na'},
+              {label: 'Job Seeker', value: 'Seeker', parent: 'na'},
+          ]}
+/>
+</View>
+
+        <Text style={[styles.text_footer, {
           marginTop: 20
         }]}>Password</Text>
         <View style={styles.action}>
+
+        <FontAwsome
+              name="lock"
+              color="#05375a"
+              size={20}
+            />
+
         <TextInput
           secureTextEntry
           placeholder="Password"
@@ -136,6 +161,13 @@ class Registration extends React.Component {
           marginTop: 20
         }]}>Confirm Password</Text>
         <View style={styles.action}>
+
+        <FontAwsome
+              name="lock"
+              color="#05375a"
+              size={20}
+            />
+
         <TextInput
           secureTextEntry
           placeholder="Confirm Password"
@@ -149,10 +181,17 @@ class Registration extends React.Component {
         style={styles.button}>
           <Text style={styles.text_footer}>Register</Text>
         </TouchableOpacity>
+
+        {/* <TouchableOpacity
+        onPress={()=>navigation.navigate('LoginScreen')}
+        style={styles.button}>
+          <Text style={styles.text_footer}>Sign In</Text>
+        </TouchableOpacity> */}
       </Animatable.View>
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
@@ -174,6 +213,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 30
 },
+  picker:{
+    width: 300,
+    height: 150,
+    borderColor: '#728FCE'
+  },
   button: {
     marginTop: 20,
     marginBottom: 20,
@@ -202,8 +246,9 @@ textInput: {
   flex: 1,
   marginTop: Platform.OS === 'ios' ? 0 : -12,
   paddingLeft: 10,
-  borderBottomWidth: 2,
-  borderBottomColor:'#728FCE',
+  // borderWidth: 2,
+  // borderRadius: 5,
+  // borderColor:'#728FCE',
   color: '#05375a',
 },
 })
