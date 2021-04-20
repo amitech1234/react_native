@@ -1,11 +1,49 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text, Image,
-  View, TouchableOpacity, Vibration, TextInput,
+  Text,
+  Image,
+  View,
+  TouchableOpacity,
+  Vibration,
+   TextInput,
+   StatusBar,
 } from 'react-native';
 
+import Feather from 'react-native-vector-icons/Feather';
+import FontAwsome from 'react-native-vector-icons/FontAwesome';
+import * as Animatable from 'react-native-animatable';
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
+
+ import { AuthContext } from '../component/context';
+
+//  function counter(){
+//   const [ data, setData ] = React.useState({
+//     email: '',
+//     password: '',
+//     check_textInputChange: false,
+//     secureTextEntry: true
+// });
+
+// const textInputChange =( val ) => {
+//   if(val.length !== 0) {
+//     setData({
+//       ...data,
+//       email: val,
+//       check_textInputChange: true
+//     });
+//   } else {
+//     setData({
+//       ...data,
+//       email: val,
+//       check_textInputChange: false
+//     });
+//   }
+// }
+// }
+
 class Login extends React.Component {
+
  constructor()
   {
     super()
@@ -61,62 +99,114 @@ class Login extends React.Component {
       console.error('Error:', error);
     });
   }
+
+  //  signIn() {
+  //     React.useContext(AuthContext);
+  //  }
+
   render() {
     return(
       <View style={styles.container}>
-        <Text style={ styles.text}>
-                    Login to continue
-                  </Text>
-        {/* <TextInput
-        placeholder="Name"
-        style={styles.input}
-        onChangeText={(text)=>this.updateValue(text,'name')}
-        /> */}
+          <StatusBar backgroundColor='#728FCE' barStyle="light-content"/>
+        <Animatable.View
+          animation="zoomIn"
+         style={styles.header}>
+        <Text style={ styles.text_header}>Login to continue</Text> 
+        </Animatable.View>
 
-        <TextInput
-        placeholder="Email"
-        style={styles.input}
-        onChangeText={(text)=>this.updateValue(text,'email')}
-        />
+        <Animatable.View
+        animation="fadeInUpBig" 
+        style={styles.footer}>
+          <Text style={[styles.text_footer, {
+            marginTop: 20
+          }]}>Email</Text> 
 
-        <TextInput
-        placeholder="Password"
-        style={styles.input}
-        onChangeText={(text)=>this.updateValue(text,'password')}
-        />
+          <View style={styles.action}>      
+            <FontAwsome
+              name="user-o"
+              color="#05375a"
+              size={20}
+            />
+
+            <TextInput
+            style={styles.textInput}
+            placeholder="Email"
+            onChangeText={(text)=>this.updateValue(text,'email')}
+          //  onChangeText={(val)=> textInputChange(val)}
+            />
+
+            {/* { data.check_textInputChange ? */}
+
+            {/* <Feather 
+              name="check-circle"
+              color="green"
+              size={20}
+            /> */}
+
+            {/* : null } */}
+
+        </View>
+
+        <Text style={[styles.text_footer, {
+          marginTop: 20
+        }]}>Password</Text>
+
+        <View style={styles.action}>
+          <FontAwsome
+              name="lock"
+              color="#05375a"
+              size={20}
+            />
+
+            <TextInput
+            secureTextEntry={true}
+            style={styles.textInput}
+            placeholder="Password"
+            onChangeText={(text)=>this.updateValue(text,'password')}
+            />
+
+            <Feather 
+              name="eye-off"
+              color="grey"
+              size={20}
+            />
+
+        </View> 
 
         <TouchableOpacity
         onPress={()=>this.submit()}
+       // onPress={() => {this.signIn()}}
         style={styles.button}>
-          <Text>Submit</Text>
+          <Text style={styles.text_footer}>Login</Text>
         </TouchableOpacity>
-
+      </Animatable.View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  input: {
-    width: 350,
-    height: 55,
-    // backgroundColor: '#fff',
-    margin: 10,
-    padding: 8,
-    color: 'black',
-    borderBottomColor:'#728FCE',
-    borderBottomWidth:2,
-    fontSize: 18,
-    fontWeight: '500',
-    
-  },
   container: {
-    flex: 1,
-    justifyContent: 'center',
-   alignItems: 'center'
+    flex: 1, 
+    backgroundColor: '#728FCE'
   },
+  header: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 20,
+    paddingBottom: 50
+},
+  footer: {
+    flex: 3,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 30
+},
   button: {
     marginTop: 20,
+    marginBottom: 20,
     alignItems: "center",
     backgroundColor: "#728FCE",
     borderColor: '#728FCE',
@@ -124,11 +214,26 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 10
   },
-  text: {
-    color: '#728FCE',
-    paddingLeft: 20,
-    fontSize: 35
-  },
+  text_header: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 30
+},
+  action: {
+    flexDirection: 'row',
+    marginTop: 10,
+    paddingBottom: 15,
+},
+text_footer: {
+  color: '#05375a',
+  fontSize: 18,
+},
+textInput: {
+  flex: 1,
+  marginTop: Platform.OS === 'ios' ? 0 : -12,
+  paddingLeft: 10,
+  color: '#05375a',
+},
 })
 
 export default Login;

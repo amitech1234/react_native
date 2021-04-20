@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text, Image,
-  View, TouchableOpacity, Vibration, TextInput,
+  Text,
+  View,
+  TouchableOpacity, 
+  Vibration, 
+  TextInput, 
+  RadioGroup
 } from 'react-native';
+
+import Feather from 'react-native-vector-icons/Feather';
+import FontAwsome from 'react-native-vector-icons/FontAwesome';
+import * as Animatable from 'react-native-animatable';
+
 
 class Registration extends React.Component {
  constructor()
@@ -61,62 +70,113 @@ class Registration extends React.Component {
       console.error('Error:', error);
     });
   }
+
   render() {
     return(
       <View style={styles.container}>
-        <Text style={ styles.text}>
-                    Welcome Register to continue
-                  </Text>
-        <TextInput
-        placeholder="Name"
-        style={styles.input}
-        onChangeText={(text)=>this.updateValue(text,'name')}
-        />
 
-        <TextInput
-        placeholder="Email"
-        style={styles.input}
-        onChangeText={(text)=>this.updateValue(text,'email')}
-        />
+        <Animatable.View
+          animation="zoomIn"
+         style={styles.header}>
+        <Text style={ styles.text_header}>Welcome</Text> 
+        </Animatable.View>
 
+        <Animatable.View
+        animation="fadeInUpBig" 
+        style={styles.footer}>
+
+          <Text style={[styles.text_footer, {
+            marginTop: 20
+          }]}>Full Name</Text>
+          <View style={styles.action}>
+          <TextInput
+            placeholder="Name"
+            style={styles.textInput}
+            onChangeText={(text)=>this.updateValue(text,'name')}
+            />
+          </View>
+
+          {/* <Text style={[styles.text_footer, {
+            marginTop: 20
+          }]}>Gender</Text>
+          <View style={styles.action}>
+          <RadioGroup
+            options={[
+              { id: 1, label: 'male' },
+              { id: 2, label: 'female' },
+            ]}
+            activeButtonId={1}
+          />
+          </View> */}
+
+          <Text style={[styles.text_footer, {
+            marginTop: 20
+          }]}>Email</Text>      
+          <View style={styles.action}>      
+          <TextInput
+            placeholder="Email"
+            style={styles.textInput}
+            onChangeText={(text)=>this.updateValue(text,'email')}
+            />
+        </View>
+
+        <Text style={[styles.text_footer, {
+          marginTop: 20
+        }]}>Password</Text>
+        <View style={styles.action}>
         <TextInput
-        placeholder="Password"
-        style={styles.input}
-        onChangeText={(text)=>this.updateValue(text,'password')}
-        />
+          secureTextEntry
+          placeholder="Password"
+          style={styles.textInput}
+          onChangeText={(text)=>this.updateValue(text,'password')}
+          />
+        </View>
+
+        <Text style={[styles.text_footer, {
+          marginTop: 20
+        }]}>Confirm Password</Text>
+        <View style={styles.action}>
+        <TextInput
+          secureTextEntry
+          placeholder="Confirm Password"
+          style={styles.textInput}
+          onChangeText={(text)=>this.updateValue(text,'password')}
+          />
+        </View>
 
         <TouchableOpacity
         onPress={()=>this.submit()}
         style={styles.button}>
-          <Text>Submit</Text>
+          <Text style={styles.text_footer}>Register</Text>
         </TouchableOpacity>
-
+      </Animatable.View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  input: {
-    width: 350,
-    height: 55,
-    // backgroundColor: '#fff',
-    margin: 10,
-    padding: 8,
-    color: 'black',
-    borderBottomColor:'#728FCE',
-    borderBottomWidth:2,
-    fontSize: 18,
-    fontWeight: '500',
-    
-  },
   container: {
-    flex: 1,
-    justifyContent: 'center',
-   alignItems: 'center'
+    flex: 1, 
+    backgroundColor: '#728FCE'
   },
+  header: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    paddingHorizontal: 20,
+    paddingBottom: 50
+},
+  footer: {
+    flex: 3,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 30
+},
   button: {
     marginTop: 20,
+    marginBottom: 20,
     alignItems: "center",
     backgroundColor: "#728FCE",
     borderColor: '#728FCE',
@@ -124,11 +184,29 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 10
   },
-  text: {
-    color: '#728FCE',
-    paddingLeft: 20,
-    fontSize: 35
-  },
+  text_header: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 30
+},
+  action: {
+    flexDirection: 'row',
+    marginTop: 10,
+    paddingBottom: 15,
+},
+text_footer: {
+  color: '#05375a',
+  fontSize: 18,
+},
+textInput: {
+  flex: 1,
+  marginTop: Platform.OS === 'ios' ? 0 : -12,
+  paddingLeft: 10,
+  borderBottomWidth: 2,
+  borderBottomColor:'#728FCE',
+  color: '#05375a',
+},
 })
+
 
 export default Registration;

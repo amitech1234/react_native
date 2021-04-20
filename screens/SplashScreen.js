@@ -20,7 +20,7 @@ const SplashScreen =({navigation}) => {
             <View style={styles.header}>
                 <Animatable.Image 
                     animation="bounceIn"
-                    // duration="1500"
+                   // duration="1500"
                     source={require('../assets/fyf.jpg')}
                     style={styles.logo}
                     resizeMod="stretch"
@@ -35,7 +35,15 @@ const SplashScreen =({navigation}) => {
                     onPress={()=>navigation.navigate('LoginScreen')}
                     style ={styles.button}
                 >
-                    <Text>Get Started</Text>
+                <Text>Login here</Text>   
+                </TouchableOpacity>
+
+                <Text style={styles.text}>New user?</Text>
+                <TouchableOpacity
+                    onPress={()=>navigation.navigate('RegistrationScreen')}
+                    style ={styles.button}
+                >
+                    <Text>Register here</Text>
                     
                 </TouchableOpacity>
             </Animatable.View>
@@ -82,6 +90,7 @@ const styles = StyleSheet.create({
       marginTop:5
   },
   button: {
+      marginBottom: 20,
     marginTop: 20,
     alignItems: "center",
     backgroundColor: "#728FCE",
