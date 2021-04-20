@@ -134,6 +134,7 @@ class Registration extends React.Component {
               {label: 'User Type', value: 'usertype', untouchable: true}, // North America
               {label: 'Student', value: 'Student', parent: 'na'},
               {label: 'Job Seeker', value: 'Seeker', parent: 'na'},
+              
           ]}
 />
 </View>
