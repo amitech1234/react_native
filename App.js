@@ -25,104 +25,105 @@ const Drawer = createDrawerNavigator();
 
 const App = () => {
 
-  const [isLoading, setIsLoading] = React.useState(true);
- const [userToken, setUserToken] = React.useState(null);
+//   const [isLoading, setIsLoading] = React.useState(true);
+//  const [userToken, setUserToken] = React.useState(null);
 
- const initialLoginState ={
-   isLoading : true,
-   userName : null,
-   userToken : null,
- };
+//  const initialLoginState ={
+//    isLoading : true,
+//    userName : null,
+//    userToken : null,
+//  };
 
- const loginReducer = (prevState, action) => {
-   switch( action.type ){
-     case 'RETRIEVE_TOKEN':
-       return{
-         ...prevState,
-         userToken: action.token,
-         isLoading: false,
-       };
-     case 'LOGIN':
-       return{
-        ...prevState,
-        userName: action.id,
-        userToken: action.token,
-        isLoading: false,
-       };
-     case 'LOGOUT':
-       return{
-        ...prevState,
-        userName: null,
-        userToken: null,
-        isLoading: false,
-       };
-     case 'REGISTER':
-       return{
-        ...prevState,
-        userName: action.id,
-        userToken: action.token,
-        isLoading: false,
-       };
-   }
- };
+//  const loginReducer = (prevState, action) => {
+//    switch( action.type ){
+//      case 'RETRIEVE_TOKEN':
+//        return{
+//          ...prevState,
+//          userToken: action.token,
+//          isLoading: false,
+//        };
+//      case 'LOGIN':
+//        return{
+//         ...prevState,
+//         userName: action.id,
+//         userToken: action.token,
+//         isLoading: false,
+//        };
+//      case 'LOGOUT':
+//        return{
+//         ...prevState,
+//         userName: null,
+//         userToken: null,
+//         isLoading: false,
+//        };
+//      case 'REGISTER':
+//        return{
+//         ...prevState,
+//         userName: action.id,
+//         userToken: action.token,
+//         isLoading: false,
+//        };
+//    }
+//  };
 
- const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
+//  const [loginState, dispatch] = React.useReducer(loginReducer, initialLoginState);
 
-  const authContext = React.useMemo(() =>({
-    signIn: (userName, password) => {
-      // setUserToken('lol');
-      // setIsLoading(false);
-      let userToken;
-      userName = null;
-      if( userName == 'user' && password == 'pass' ) {
-        userToken = 'lol';
-      } 
-      dispatch({ type:'LOGIN', id: userName, token: userToken});
-    },
-    signOut: () => {
-      setUserToken(null);
-      setIsLoading(false);
-    },
-    signUp: () => {
-      setUserToken('lol');
-      setIsLoading(false);
-    },
-  }));
-  useEffect(() => {
-    setTimeout(() => {
-      // setIsLoading(false);
-      dispatch({ type:'RETRIEVE_TOKEN', token: 'loool'});
-    },1000);
-  }, []);
+//   const authContext = React.useMemo(() =>({
+//     signIn: (userName, password) => {
+//       // setUserToken('lol');
+//       // setIsLoading(false);
+//       let userToken;
+//       userName = null;
+//       if( userName == 'user' && password == 'pass' ) {
+//         userToken = 'lol';
+//       } 
+//       dispatch({ type:'LOGIN', id: userName, token: userToken});
+//     },
+//     signOut: () => {
+//       setUserToken(null);
+//       setIsLoading(false);
+//     },
+//     signUp: () => {
+//       setUserToken('lol');
+//       setIsLoading(false);
+//     },
+//   }));
+//   useEffect(() => {
+//     setTimeout(() => {
+//       // setIsLoading(false);
+//       dispatch({ type:'RETRIEVE_TOKEN', token: 'loool'});
+//     },1000);
+//   }, []);
 
-  if(loginState.isLoading){
-    return(
-      <View style={{flex:1, justifyContent:'center', alignItem:'center' }}>
-        <ActivityIndicator size="large"/>
-      </View>
-    );
-  }
+//   if(loginState.isLoading){
+//     return(
+//       <View style={{flex:1, justifyContent:'center', alignItem:'center' }}>
+//         <ActivityIndicator size="large"/>
+//       </View>
+//     );
+//   }
 
 
   return (
-    <AuthContext.Provider value={authContext}>
+    // <AuthContext.Provider value={authContext}>
       <NavigationContainer>
-        { loginState. userToken !== null ? (
-                <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-                <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
-                <Drawer.Screen name="Home" component = { HomeScreen } />
-                <Drawer.Screen name="Profile" component = { ProfileScreen } />
-                <Drawer.Screen name="Bookmarks" component = { BookmarkScreen } />
-                <Drawer.Screen name="Settings" component = { SettingsScreen } />
-                <Drawer.Screen name="Login" component = { LoginScreen } />
-                <Drawer.Screen name="Register" component = { RegistrationScreen } />
-             </Drawer.Navigator>
-        )
-      :
-      <RootStackScreen/> 
-      }
+        {/* { loginState. userToken !== null ? ( */}
+          <RootStackScreen/> 
+               
+        {/* )
+      : */}
+      {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+      <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
+      <Drawer.Screen name="Home" component = { HomeScreen } />
+      <Drawer.Screen name="Profile" component = { ProfileScreen } />
+      <Drawer.Screen name="Bookmarks" component = { BookmarkScreen } />
+      <Drawer.Screen name="Settings" component = { SettingsScreen } />
+      <Drawer.Screen name="Login" component = { LoginScreen } />
+      <Drawer.Screen name="Register" component = { RegistrationScreen } />
+   </Drawer.Navigator> */}
+      {/* } */}
     </NavigationContainer>
-    </AuthContext.Provider>
+    // </AuthContext.Provider>
   );
 }
 export default App;
