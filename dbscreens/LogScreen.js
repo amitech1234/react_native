@@ -10,37 +10,19 @@ import {
    StatusBar,
 } from 'react-native';
 
+// const history =  useHistory ();
+
+
+// import HomeScreen from '../screens/HomeScreen'
+// import RootStackScreen from '../screens/RootStackScreen';
+// import {useHistory} from 'react-router-dom';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwsome from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
  import { AuthContext } from '../component/context';
-
-//  function counter(){
-//   const [ data, setData ] = React.useState({
-//     email: '',
-//     password: '',
-//     check_textInputChange: false,
-//     secureTextEntry: true
-// });
-
-// const textInputChange =( val ) => {
-//   if(val.length !== 0) {
-//     setData({
-//       ...data,
-//       email: val,
-//       check_textInputChange: true
-//     });
-//   } else {
-//     setData({
-//       ...data,
-//       email: val,
-//       check_textInputChange: false
-//     });
-//   }
-// }
-// }
+import HomeScreen from '../screens/HomeScreen';
 
 class Login extends React.Component {
 
@@ -56,12 +38,6 @@ class Login extends React.Component {
 
   updateValue(text,field){
 
-    // if(field=='name')
-    // {
-    //   this.setState({
-    //     name:text,
-    //   })
-    // }
      if(field=='email')
     {
       this.setState({
@@ -94,15 +70,15 @@ class Login extends React.Component {
     .then(response => response.json())
     .then(user => {
       console.log('Success:', user);
+      this.props.navigator.push({
+        component: HomeScreen
+      })
     })
     .catch((error) => {
       console.error('Error:', error);
     });
   }
 
-  //  signIn() {
-  //     React.useContext(AuthContext);
-  //  }
 
   render() {
     return(

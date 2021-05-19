@@ -7,7 +7,9 @@ import {
   TouchableOpacity, 
   Vibration, 
   TextInput, 
-  RadioGroup
+  RadioGroup,
+  Button,
+  CheckBox
 } from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
@@ -25,6 +27,16 @@ class Registration extends React.Component {
       email:'',
       password:'',
     }
+    this.state = {
+      radioButton:'',
+      check:false
+    }
+  }
+
+  checkBoxTest(){
+    this.setState({
+      check:!this.state.check
+    })
   }
 
   updateValue(text,field){
@@ -127,17 +139,36 @@ class Registration extends React.Component {
         <Text style={[styles.text_footer, {
             marginTop: 20
           }]}>User Type</Text>  
-        <View style={styles.action}>   
-        <DropDownPicker
-        //  style={styles.picker}
-          items={[
-              {label: 'User Type', value: 'usertype', untouchable: true}, // North America
-              {label: 'Student', value: 'Student', parent: 'na'},
-              {label: 'Job Seeker', value: 'Seeker', parent: 'na'},
 
-          ]}
-/>
-</View>
+          <View style={styles.action}>
+          
+          <CheckBox 
+                value={!this.state.check}
+                title='Male'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={this.state.radioButton === 'male'}
+                onPress={() => this.setState({radioButton: 'male'})}
+                onChange={()=>this.checkBoxTest()}
+                ></CheckBox>
+
+                <Text>Male</Text>
+            </View>
+            <View style={styles.action}>
+            
+            <CheckBox 
+                value={this.state.check}
+                title='Female'
+                checkedIcon='dot-circle-o'
+                uncheckedIcon='circle-o'
+                checked={this.state.radioButton === 'female'}
+                onPress={() => this.setState({radioButton: 'female'})}
+                onChange={()=>this.checkBoxTest()}
+                ></CheckBox> 
+            
+                <Text>Female</Text>
+        </View>
+               
 
         <Text style={[styles.text_footer, {
           marginTop: 20

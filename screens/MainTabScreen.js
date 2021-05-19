@@ -27,6 +27,7 @@ const MainTabScreen = () => (
       activeColor="#fff"
       barStyle={{ backgroundColor: '#728FCE' }}
     >
+      
         <Tab.Screen
         name="Home"
         component={HomeStackScreen}
@@ -84,7 +85,7 @@ const HomeStackScreen = ({navigation}) =>(
     }}>
       <HomeStack.Screen name="Home" component={HomeScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={35} 
+          <Icon.Button name="ios-menu" size={30} 
           backgroundColor = "#728FCE" onPress = { () =>
             navigation.openDrawer()
           }></Icon.Button>
@@ -105,7 +106,7 @@ const HomeStackScreen = ({navigation}) =>(
     }}>
       <LoginStack.Screen name="Login" component={LoginScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={35} 
+          <Icon.Button name="ios-menu" size={30} 
           backgroundColor = "#728FCE" onPress = { () =>
             navigation.openDrawer()
           }></Icon.Button>
@@ -126,7 +127,7 @@ const HomeStackScreen = ({navigation}) =>(
     }}>
       <RegistrationStack.Screen name="Register" component={RegistrationScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={35} 
+          <Icon.Button name="ios-menu" size={30} 
           backgroundColor = "#728FCE" onPress = { () =>
             navigation.openDrawer()
           }></Icon.Button>
@@ -148,7 +149,7 @@ const HomeStackScreen = ({navigation}) =>(
     }}>
       <CollegeStack.Screen name="College" component={CollegeScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={35} 
+          <Icon.Button name="ios-menu" size={30} 
           backgroundColor = "#728FCE" onPress = { () =>
             navigation.openDrawer()
           }></Icon.Button>
@@ -169,7 +170,7 @@ const HomeStackScreen = ({navigation}) =>(
     }}>
       <CompanyStack.Screen name="Company" component={CompanyScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={35} 
+          <Icon.Button name="ios-menu" size={30} 
           backgroundColor = "#728FCE" onPress = { () =>
             navigation.openDrawer()
           }></Icon.Button>
@@ -190,7 +191,7 @@ const HomeStackScreen = ({navigation}) =>(
     }}>
       <NotificationStack.Screen name="Notification" component={NotificationScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={35} 
+          <Icon.Button name="ios-menu" size={30} 
           backgroundColor = "#728FCE" onPress = { () =>
             navigation.openDrawer()
           }></Icon.Button>
