@@ -39,7 +39,7 @@ export function DrawerContent(props) {
                    <View style={{flexDirection:'row',marginTop: 15}}>
                    <Avatar.Image 
                                 source={{
-                                    url : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"
+                                    url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU'
                               }}
                                 size={50}
                             />

@@ -70,9 +70,6 @@ class Login extends React.Component {
     .then(response => response.json())
     .then(user => {
       console.log('Success:', user);
-      this.props.navigator.push({
-        component: HomeScreen
-      })
     })
     .catch((error) => {
       console.error('Error:', error);

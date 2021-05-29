@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons'
+import { Text, View, TouchableOpacity, Button, StyleSheet, TextInput} from 'react-native';
 
 
 import HomeScreen from './HomeScreen'
@@ -10,6 +11,7 @@ import RegistrationScreen from './RegistrationScreen'
 import CollegeScreen from './CollegeScreen'
 import CompanyScreen from './CompanyScreen'
 import NotificationScreen from './NotificationScreen'
+import { Avatar } from 'react-native-paper';
 
 const HomeStack = createStackNavigator();
 const LoginStack = createStackNavigator();
@@ -76,19 +78,44 @@ export default MainTabScreen;
 const HomeStackScreen = ({navigation}) =>(
     <HomeStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#728FCE'
+        backgroundColor: '#fff',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#333 ',
       headerTitleStyle: {
         fontWeight: 'bold'
       }
     }}>
       <HomeStack.Screen name="Home" component={HomeScreen} options={{
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={30} 
-          backgroundColor = "#728FCE" onPress = { () =>
-            navigation.openDrawer()
-          }></Icon.Button>
+          <View style={{marginLeft:10}}>
+          <Icon.Button 
+          name="ios-menu" 
+          size={30} 
+          color='#728FCE'
+          backgroundColor = "#fff" 
+          onPress = { () => navigation.openDrawer()}
+          />
+          </View>
+        ),
+        headerRight: () => (
+        <View style={{flexDirection:'row', marginRight:10 }}>
+          <Icon.Button 
+          name="ios-search" 
+          size={30} 
+          color='#728FCE'
+          backgroundColor = "#fff" 
+          onPress = { () => {}}
+          />
+          <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+           onPress={() => {navigation.navigate('Profile');}}>
+          <Avatar.Image 
+            source={{
+              url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
+            }}
+            size={30}
+          />
+          </TouchableOpacity>
+        </View>
         )
       }}/>
     </HomeStack.Navigator>
@@ -140,62 +167,137 @@ const HomeStackScreen = ({navigation}) =>(
   const CollegeStackScreen = ({navigation}) =>(
     <CollegeStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#728FCE'
+        backgroundColor: '#fff',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#333 ',
       headerTitleStyle: {
         fontWeight: 'bold'
       }
     }}>
       <CollegeStack.Screen name="College" component={CollegeScreen} options={{
-        headerLeft: () => (
-          <Icon.Button name="ios-menu" size={30} 
-          backgroundColor = "#728FCE" onPress = { () =>
-            navigation.openDrawer()
-          }></Icon.Button>
-        )
-      }}/>
+       headerLeft: () => (
+        <View style={{marginLeft:10}}>
+        <Icon.Button 
+        name="ios-menu" 
+        size={30} 
+        color='#728FCE'
+        backgroundColor = "#fff" 
+        onPress = { () => navigation.openDrawer()}
+        />
+        </View>
+      ),
+      headerRight: () => (
+      <View style={{flexDirection:'row', marginRight:10 }}>
+        <Icon.Button 
+        name="ios-search" 
+        size={30} 
+        color='#728FCE'
+        backgroundColor = "#fff" 
+        onPress = { () => {}}
+        />
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+         onPress={() => {navigation.navigate('Profile');}}>
+        <Avatar.Image 
+          source={{
+            url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
+          }}
+          size={30}
+        />
+        </TouchableOpacity>
+      </View>
+      )
+    }}/>
     </CollegeStack.Navigator>
   );
 
   const CompanyStackScreen = ({navigation}) =>(
     <CompanyStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#728FCE'
+        backgroundColor: '#fff',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#333 ',
       headerTitleStyle: {
         fontWeight: 'bold'
       }
     }}>
       <CompanyStack.Screen name="Company" component={CompanyScreen} options={{
-        headerLeft: () => (
-          <Icon.Button name="ios-menu" size={30} 
-          backgroundColor = "#728FCE" onPress = { () =>
-            navigation.openDrawer()
-          }></Icon.Button>
-        )
-      }}/>
+       headerLeft: () => (
+        <View style={{marginLeft:10}}>
+        <Icon.Button 
+        name="ios-menu" 
+        size={30} 
+        color='#728FCE'
+        backgroundColor = "#fff" 
+        onPress = { () => navigation.openDrawer()}
+        />
+        </View>
+      ),
+      headerRight: () => (
+      <View style={{flexDirection:'row', marginRight:10 }}>
+        <Icon.Button 
+        name="ios-search" 
+        size={30} 
+        color='#728FCE'
+        backgroundColor = "#fff" 
+        onPress = { () => {}}
+        />
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+         onPress={() => {navigation.navigate('Profile');}}>
+        <Avatar.Image 
+          source={{
+            url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
+          }}
+          size={30}
+        />
+        </TouchableOpacity>
+      </View>
+      )
+    }}/>
     </CompanyStack.Navigator>
   );
 
   const NotificationStackScreen = ({navigation}) =>(
     <NotificationStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#728FCE'
+        backgroundColor: '#fff',
       },
-      headerTintColor: '#fff',
+      headerTintColor: '#333 ',
       headerTitleStyle: {
         fontWeight: 'bold'
       }
     }}>
       <NotificationStack.Screen name="Notification" component={NotificationScreen} options={{
-        headerLeft: () => (
-          <Icon.Button name="ios-menu" size={30} 
-          backgroundColor = "#728FCE" onPress = { () =>
-            navigation.openDrawer()
-          }></Icon.Button>
-        )
-      }}/>
+       headerLeft: () => (
+        <View style={{marginLeft:10}}>
+        <Icon.Button 
+        name="ios-menu" 
+        size={30} 
+        color='#728FCE'
+        backgroundColor = "#fff" 
+        onPress = { () => navigation.openDrawer()}
+        />
+        </View>
+      ),
+      headerRight: () => (
+      <View style={{flexDirection:'row', marginRight:10 }}>
+        <Icon.Button 
+        name="ios-search" 
+        size={30} 
+        color='#728FCE'
+        backgroundColor = "#fff" 
+        onPress = { () => {}}
+        />
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+         onPress={() => {navigation.navigate('Profile');}}>
+        <Avatar.Image 
+          source={{
+            url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
+          }}
+          size={30}
+        />
+        </TouchableOpacity>
+      </View>
+      )
+    }}/>
     </NotificationStack.Navigator>
   );
