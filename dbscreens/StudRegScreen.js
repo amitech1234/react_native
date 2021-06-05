@@ -17,7 +17,7 @@ import FontAwsome from 'react-native-vector-icons/FontAwesome';
 import * as Animatable from 'react-native-animatable';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-class Registration extends React.Component {
+class StudRegistration extends React.Component {
 
  constructor()
   {
@@ -27,17 +27,17 @@ class Registration extends React.Component {
       email:'',
       password:'',
     }
-    this.state = {
-      radioButton:'',
-      check:false
-    }
+    // this.state = {
+    //   radioButton:'',
+    //   check:false
+    // }
   }
 
-  checkBoxTest(){
-    this.setState({
-      check:!this.state.check
-    })
-  }
+  // checkBoxTest(){
+  //   this.setState({
+  //     check:!this.state.check
+  //   })
+  // }
 
   updateValue(text,field){
 
@@ -92,7 +92,7 @@ class Registration extends React.Component {
         <Animatable.View
           animation="zoomIn"
          style={styles.header}>
-        <Text style={ styles.text_header}>Welcome</Text> 
+        <Text style={ styles.text_header}>Student Registration Form</Text> 
         </Animatable.View>
 
         <Animatable.View
@@ -136,7 +136,7 @@ class Registration extends React.Component {
             />
         </View>
 
-        <Text style={[styles.text_footer, {
+        {/* <Text style={[styles.text_footer, {
             marginTop: 20
           }]}>User Type</Text>  
 
@@ -144,30 +144,30 @@ class Registration extends React.Component {
           
           <CheckBox 
                 value={!this.state.check}
-                title='Male'
+                title='Student'
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
-                checked={this.state.radioButton === 'male'}
-                onPress={() => this.setState({radioButton: 'male'})}
+                checked={this.state.radioButton === 'student'}
+                onPress={() => this.setState({radioButton: 'student'})}
                 onChange={()=>this.checkBoxTest()}
                 ></CheckBox>
 
-                <Text>Male</Text>
+                <Text>Student</Text>
             </View>
             <View style={styles.action}>
             
             <CheckBox 
                 value={this.state.check}
-                title='Female'
+                title='JobSeeker'
                 checkedIcon='dot-circle-o'
                 uncheckedIcon='circle-o'
-                checked={this.state.radioButton === 'female'}
-                onPress={() => this.setState({radioButton: 'female'})}
+                checked={this.state.radioButton === 'jobseeker'}
+                onPress={() => this.setState({radioButton: 'jobseeker'})}
                 onChange={()=>this.checkBoxTest()}
                 ></CheckBox> 
             
-                <Text>Female</Text>
-        </View>
+                <Text>Job Seeker</Text>
+        </View> */}
                
 
         <Text style={[styles.text_footer, {
@@ -286,4 +286,4 @@ textInput: {
 })
 
 
-export default Registration;
+export default StudRegistration;

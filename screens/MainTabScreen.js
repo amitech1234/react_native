@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons'
-import { Text, View, TouchableOpacity, Button, StyleSheet, TextInput} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 
 
 import HomeScreen from './HomeScreen'
@@ -78,7 +78,7 @@ export default MainTabScreen;
 const HomeStackScreen = ({navigation}) =>(
     <HomeStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#fff',
+        backgroundColor: '#728FCE',
       },
       headerTintColor: '#333 ',
       headerTitleStyle: {
@@ -88,24 +88,36 @@ const HomeStackScreen = ({navigation}) =>(
       <HomeStack.Screen name="Home" component={HomeScreen} options={{
         headerLeft: () => (
           <View style={{marginLeft:10}}>
-          <Icon.Button 
+
+            <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+               onPress = { () => navigation.openDrawer()}>
+              <Avatar.Image 
+                source={require('../assets/menu.png')}
+                backgroundColor = "#728FCE"
+                size={30}
+              />
+            </TouchableOpacity>
+          {/* <Icon.Button 
           name="ios-menu" 
           size={30} 
           color='#728FCE'
           backgroundColor = "#fff" 
           onPress = { () => navigation.openDrawer()}
-          />
+          /> */}
           </View>
         ),
         headerRight: () => (
         <View style={{flexDirection:'row', marginRight:10 }}>
-          <Icon.Button 
-          name="ios-search" 
-          size={30} 
-          color='#728FCE'
-          backgroundColor = "#fff" 
-          onPress = { () => {}}
+
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+           onPress = { () => {navigation.navigate('Search');}}>
+          <Avatar.Image 
+          source={require('../assets/search.png')}
+            backgroundColor = "#728FCE"
+            size={30}
           />
+          </TouchableOpacity>
+
           <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
            onPress={() => {navigation.navigate('Profile');}}>
           <Avatar.Image 
@@ -167,7 +179,7 @@ const HomeStackScreen = ({navigation}) =>(
   const CollegeStackScreen = ({navigation}) =>(
     <CollegeStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#fff',
+        backgroundColor: '#728FCE',
       },
       headerTintColor: '#333 ',
       headerTitleStyle: {
@@ -177,24 +189,27 @@ const HomeStackScreen = ({navigation}) =>(
       <CollegeStack.Screen name="College" component={CollegeScreen} options={{
        headerLeft: () => (
         <View style={{marginLeft:10}}>
-        <Icon.Button 
-        name="ios-menu" 
-        size={30} 
-        color='#728FCE'
-        backgroundColor = "#fff" 
-        onPress = { () => navigation.openDrawer()}
-        />
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+               onPress = { () => navigation.openDrawer()}>
+              <Avatar.Image 
+                source={require('../assets/menu.png')}
+                backgroundColor = "#728FCE"
+                size={30}
+              />
+            </TouchableOpacity>
         </View>
       ),
       headerRight: () => (
       <View style={{flexDirection:'row', marginRight:10 }}>
-        <Icon.Button 
-        name="ios-search" 
-        size={30} 
-        color='#728FCE'
-        backgroundColor = "#fff" 
-        onPress = { () => {}}
-        />
+        
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+           onPress = { () => {navigation.navigate('Search');}}>
+          <Avatar.Image 
+          source={require('../assets/search.png')}
+            backgroundColor = "#728FCE"
+            size={30}
+          />
+          </TouchableOpacity>
         <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
          onPress={() => {navigation.navigate('Profile');}}>
         <Avatar.Image 
@@ -213,7 +228,7 @@ const HomeStackScreen = ({navigation}) =>(
   const CompanyStackScreen = ({navigation}) =>(
     <CompanyStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#fff',
+        backgroundColor: '#728FCE',
       },
       headerTintColor: '#333 ',
       headerTitleStyle: {
@@ -223,24 +238,28 @@ const HomeStackScreen = ({navigation}) =>(
       <CompanyStack.Screen name="Company" component={CompanyScreen} options={{
        headerLeft: () => (
         <View style={{marginLeft:10}}>
-        <Icon.Button 
-        name="ios-menu" 
-        size={30} 
-        color='#728FCE'
-        backgroundColor = "#fff" 
-        onPress = { () => navigation.openDrawer()}
-        />
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+               onPress = { () => navigation.openDrawer()}>
+              <Avatar.Image 
+                source={require('../assets/menu.png')}
+                backgroundColor = "#728FCE"
+                size={30}
+              />
+            </TouchableOpacity>
         </View>
       ),
       headerRight: () => (
       <View style={{flexDirection:'row', marginRight:10 }}>
-        <Icon.Button 
-        name="ios-search" 
-        size={30} 
-        color='#728FCE'
-        backgroundColor = "#fff" 
-        onPress = { () => {}}
-        />
+       
+       <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+           onPress = { () => {navigation.navigate('Search');}}>
+          <Avatar.Image 
+          source={require('../assets/search.png')}
+            backgroundColor = "#728FCE"
+            size={30}
+          />
+          </TouchableOpacity>
+       
         <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
          onPress={() => {navigation.navigate('Profile');}}>
         <Avatar.Image 
@@ -259,7 +278,7 @@ const HomeStackScreen = ({navigation}) =>(
   const NotificationStackScreen = ({navigation}) =>(
     <NotificationStack.Navigator screenOptions = {{
       headerStyle:{
-        backgroundColor: '#fff',
+        backgroundColor: '#728FCE',
       },
       headerTintColor: '#333 ',
       headerTitleStyle: {
@@ -269,24 +288,27 @@ const HomeStackScreen = ({navigation}) =>(
       <NotificationStack.Screen name="Notification" component={NotificationScreen} options={{
        headerLeft: () => (
         <View style={{marginLeft:10}}>
-        <Icon.Button 
-        name="ios-menu" 
-        size={30} 
-        color='#728FCE'
-        backgroundColor = "#fff" 
-        onPress = { () => navigation.openDrawer()}
-        />
+        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+               onPress = { () => navigation.openDrawer()}>
+              <Avatar.Image 
+                source={require('../assets/menu.png')}
+                backgroundColor = "#728FCE"
+                size={30}
+              />
+            </TouchableOpacity>
         </View>
       ),
       headerRight: () => (
       <View style={{flexDirection:'row', marginRight:10 }}>
-        <Icon.Button 
+        
+        {/* <Icon.Button 
         name="ios-search" 
         size={30} 
         color='#728FCE'
         backgroundColor = "#fff" 
-        onPress = { () => {}}
-        />
+        onPress = { () => {navigation.navigate('Search');}}
+        /> */}
+       
         <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
          onPress={() => {navigation.navigate('Profile');}}>
         <Avatar.Image 

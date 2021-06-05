@@ -98,7 +98,7 @@ export function DrawerContent(props) {
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="settings-outline" 
+                                name="settings-helper" 
                                 color={color}
                                 size={size}
                                 />
@@ -106,28 +106,17 @@ export function DrawerContent(props) {
                             label="Settings"
                             onPress={() => {props.navigation.navigate('Settings')}}
                         />
-                        {/* <DrawerItem 
-                            icon={({color, size}) => (
-                                <Icon 
-                                name="account-check-outline" 
-                                color={color}
-                                size={size}
-                                />
-                            )}
-                            label="Login"
-                            onPress={() => {props.navigation.navigate('Login')}}
-                        />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="account-check-outline" 
+                                name="card-search" 
                                 color={color}
                                 size={size}
                                 />
                             )}
-                            label="Register"
-                            onPress={() => {props.navigation.navigate('Register')}}
-                        /> */}
+                            label="Search"
+                            onPress={() => {props.navigation.navigate('Search')}}
+                        />
                     </Drawer.Section>
                     <Drawer.Section title="Preferences">
                         <TouchableRipple onPress={() => {toggleTheme()}}>

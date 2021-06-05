@@ -14,7 +14,7 @@ import * as Animatable from 'react-native-animatable';
 // import LinearGradient from 'react-native-linear-gradient';
 // import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const SplashScreen =({navigation}) => {
+const UserTypeScreen =({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -29,21 +29,21 @@ const SplashScreen =({navigation}) => {
             <Animatable.View
                  animation="fadeInUpBig"
                 style={styles.footer}>
-                <Text style={styles.title}>Stay Connected with your future</Text>
-                <Text style={styles.text}>Login with your account</Text>
+                <Text style={styles.title}>Select User Type</Text>
+                <Text style={styles.text}>Student</Text>
                 <TouchableOpacity
-                    onPress={()=>navigation.navigate('LoginScreen')}
+                    onPress={()=>navigation.navigate('StudentRegScreen')}
                     style ={styles.button}
                 >
-                <Text>Login here</Text>   
+                <Text>Student Register</Text>   
                 </TouchableOpacity>
 
-                <Text style={styles.text}>New user?</Text>
+                <Text style={styles.text}>Job Seeker</Text>
                 <TouchableOpacity
-                    onPress={()=>navigation.navigate('UserTypeScreen')}
+                    onPress={()=>navigation.navigate('JobseekerRegScreen')}
                     style ={styles.button}
                 >
-                    <Text>Register here</Text>
+                    <Text>Job seeker Register</Text>
                     
                 </TouchableOpacity>
             </Animatable.View>
@@ -53,7 +53,7 @@ const SplashScreen =({navigation}) => {
 };
 
 
-export default SplashScreen;
+export default UserTypeScreen;
 
 const {height} = Dimensions.get("screen");
 const height_logo = height * 0.28;
