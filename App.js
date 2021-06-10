@@ -28,8 +28,8 @@ const App = () => {
 
   return (
       <NavigationContainer>
-          <RootStackScreen/> 
-                {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+          {/* <RootStackScreen/>  */}
+                <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
                 <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
                 <Drawer.Screen name="Home" component = { HomeScreen } />
                 <Drawer.Screen name="Profile" component = { ProfileScreen } />
@@ -38,7 +38,7 @@ const App = () => {
                 <Drawer.Screen name="Login" component = { LoginScreen } />
                 <Drawer.Screen name="Register" component = { RegistrationScreen } />
                 <Drawer.Screen name="Search" component = { SearchScreen } />
-             </Drawer.Navigator> */}
+             </Drawer.Navigator>
     </NavigationContainer>
   );
 }
