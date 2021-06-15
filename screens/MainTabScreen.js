@@ -10,7 +10,7 @@ import LoginScreen from './LoginScreen'
 import RegistrationScreen from './RegistrationScreen'
 import CollegeScreen from './CollegeScreen'
 import CompanyScreen from './CompanyScreen'
-import NotificationScreen from './NotificationScreen'
+import SearchScreen from './SearchScreen'
 import { Avatar } from 'react-native-paper';
 
 const HomeStack = createStackNavigator();
@@ -18,7 +18,7 @@ const LoginStack = createStackNavigator();
 const RegistrationStack = createStackNavigator();
 const CollegeStack = createStackNavigator();
 const CompanyStack = createStackNavigator();
-const NotificationStack = createStackNavigator();
+const SearchStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -61,12 +61,12 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Login"
-        component={NotificationStackScreen}
+        name="Search"
+        component={SearchStackScreen}
         options={{
-          tabBarLabel: 'Notifications',
+          tabBarLabel: 'Searchs',
           tabBarIcon: ({ color }) => (
-            <Icon name="md-notifications" color={color} size={26} />
+            <Icon name="md-search" color={color} size={26} />
           ),
         }}
       />
@@ -275,8 +275,8 @@ const HomeStackScreen = ({navigation}) =>(
     </CompanyStack.Navigator>
   );
 
-  const NotificationStackScreen = ({navigation}) =>(
-    <NotificationStack.Navigator screenOptions = {{
+  const SearchStackScreen = ({navigation}) =>(
+    <SearchStack.Navigator screenOptions = {{
       headerStyle:{
         backgroundColor: '#728FCE',
       },
@@ -285,7 +285,7 @@ const HomeStackScreen = ({navigation}) =>(
         fontWeight: 'bold'
       }
     }}>
-      <NotificationStack.Screen name="Notification" component={NotificationScreen} options={{
+      <SearchStack.Screen name="Search" component={SearchScreen} options={{
        headerLeft: () => (
         <View style={{marginLeft:10}}>
         <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
@@ -300,15 +300,6 @@ const HomeStackScreen = ({navigation}) =>(
       ),
       headerRight: () => (
       <View style={{flexDirection:'row', marginRight:10 }}>
-        
-        {/* <Icon.Button 
-        name="ios-search" 
-        size={30} 
-        color='#728FCE'
-        backgroundColor = "#fff" 
-        onPress = { () => {navigation.navigate('Search');}}
-        /> */}
-       
         <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
          onPress={() => {navigation.navigate('Profile');}}>
         <Avatar.Image 
@@ -321,5 +312,5 @@ const HomeStackScreen = ({navigation}) =>(
       </View>
       )
     }}/>
-    </NotificationStack.Navigator>
+    </SearchStack.Navigator>
   );
