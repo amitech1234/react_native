@@ -1,5 +1,4 @@
-//import React from 'react';
-//import CollegeData from '../dbscreens/CollegeData';
+
 import React, { useEffect, useState } from 'react';
 import {
     ActivityIndicator,
@@ -8,8 +7,11 @@ import {
     View, 
     StyleSheet,
     Image, 
-    TouchableOpacity
+    TouchableOpacity,
+    TextInput
   } from 'react-native';
+  import Icon from 'react-native-vector-icons/Ionicons'
+
 
 const CollegeScreen = ( { navigation } ) => {
   const [isLoading, setLoading] = useState(true);
@@ -25,21 +27,34 @@ const CollegeScreen = ( { navigation } ) => {
 
   return (
     <View>
+      <View style={styles.searchView}>
+        <TextInput 
+          placeholder="Type here.."
+          style={styles.search}
+        />
+        <View style={styles.searchImgView}>
+          <TouchableOpacity>
+            <Icon name="md-search" size={26} />
+          </TouchableOpacity>
+        </View>
+      </View>
       {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
             <View style={styles.item}>
-              {/* <Image
+              <Image
                 style={styles.img}
-                source={require('../assets/fyf.jpg')}
-              /> */}
+                source={require('../assets/mit.jpg')}
+              />
+              <View>
               <TouchableOpacity>
             <Text style={styles.text_header}>{item.c_name}</Text>
             </TouchableOpacity>
             <Text style={styles.text_footer}>{item.caddress}</Text>
             <Text style={styles.text_footer}>{item.cemail_id}</Text>
+            </View>
             </View>
           )}
         />
@@ -61,26 +76,52 @@ const CollegeScreen = ( { navigation } ) => {
         flex:1,
         alignSelf: 'stretch',
         margin: 10,
-        //height: 150,
+        height: 300,
         borderWidth:1,
-        borderColor:'#728FCE',
+        borderColor:'#333',
         borderRadius: 15,
+        backgroundColor: '#BCC6CC'
     },
     text_header: {
-      marginLeft: 155,
+      marginLeft: 10,
       color: '#728FCE',
       fontWeight: 'bold',
       fontSize: 30
   },
   text_footer: {
-    marginLeft: 155,
+    marginLeft: 10,
     color: '#05375a',
     fontSize: 18,
   },
   img: {
-    height: 147,
-    width: 147,
+    height: 150,
+    width: 389,
     borderTopLeftRadius: 15,
-    borderBottomLeftRadius: 15,
+    borderTopRightRadius: 15,
+  },
+  searchView: {
+    backgroundColor: '#FFF',
+    borderRadius: 5,
+    padding: 5,
+    flexDirection: 'row',
+    alignItems:'center',
+    marginTop: 5,
+    marginLeft: 5,
+    marginRight: 5,
+    borderWidth: 2,
+    borderColor: '#728FCE',
+    height: 50
+  },
+  search: {
+
+    paddingHorizontal: 20,
+    width: 350
+  },
+  searchImgView: {
+    backgroundColor: '#fff',
+    width: 35,
+    height: 35,
+    borderRadius: 8,
+
   }
 })

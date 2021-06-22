@@ -14,13 +14,15 @@ import ProfileScreen from './screens/ProfileScreen'
 import BookmarkScreen from './screens/BookmarkScreen'
 import SettingsScreen from './screens/SettingsScreen'
 import RegistrationScreen from './screens/RegistrationScreen'
-import SearchScreen from './screens/SearchScrean'
-import RootStackScreen from './screens/RootStackScreen';
-import { View } from 'react-native-animatable';
-import { ActivityIndicator } from 'react-native';
-import { useEffect } from 'react';
+// import SearchScreen from './screens/SearchScrean'
+// import RootStackScreen from './screens/RootStackScreen';
+// import ClgSrchScreen from './screens/ClgSrchScreen';
+// import CmpSrchScreen from './screens/CmpSrchScreen';
+// import { View } from 'react-native-animatable';
+// import { ActivityIndicator } from 'react-native';
+// import { useEffect } from 'react';
 
-import { AuthContext } from './component/context';
+// import { AuthContext } from './component/context';
 
 const Drawer = createDrawerNavigator();
 
@@ -37,7 +39,9 @@ const App = () => {
                 <Drawer.Screen name="Settings" component = { SettingsScreen } />
                 <Drawer.Screen name="Login" component = { LoginScreen } />
                 <Drawer.Screen name="Register" component = { RegistrationScreen } />
-                <Drawer.Screen name="Search" component = { SearchScreen } />
+                {/* <Drawer.Screen name="Search" component = { SearchScreen } /> */}
+                {/* <Drawer.Screen name="ClgSrch" component = { ClgSrchScreen } />
+                <Drawer.Screen name="CmpSrch" component = { CmpSrchScreen } /> */}
              </Drawer.Navigator>
     </NavigationContainer>
   );

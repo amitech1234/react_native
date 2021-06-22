@@ -10,7 +10,9 @@ import LoginScreen from './LoginScreen'
 import RegistrationScreen from './RegistrationScreen'
 import CollegeScreen from './CollegeScreen'
 import CompanyScreen from './CompanyScreen'
-import SearchScreen from './SearchScreen'
+import ProfileScreen from './ProfileScreen'
+// import ClgSrchScreen from './ClgSrchScreen';
+// import CmpSrchScreen from './CmpSrchScreen';
 import { Avatar } from 'react-native-paper';
 
 const HomeStack = createStackNavigator();
@@ -18,7 +20,9 @@ const LoginStack = createStackNavigator();
 const RegistrationStack = createStackNavigator();
 const CollegeStack = createStackNavigator();
 const CompanyStack = createStackNavigator();
-const SearchStack = createStackNavigator();
+const ProfileStack = createStackNavigator();
+// const ClgSrchStack = createStackNavigator();
+// const CmpSrchStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -61,12 +65,12 @@ const MainTabScreen = () => (
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={SearchStackScreen}
+        name="Profile"
+        component={ProfileStackScreen}
         options={{
-          tabBarLabel: 'Searchs',
+          tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
-            <Icon name="md-search" color={color} size={26} />
+            <Icon name="md-person" color={color} size={26} />
           ),
         }}
       />
@@ -97,38 +101,9 @@ const HomeStackScreen = ({navigation}) =>(
                 size={30}
               />
             </TouchableOpacity>
-          {/* <Icon.Button 
-          name="ios-menu" 
-          size={30} 
-          color='#728FCE'
-          backgroundColor = "#fff" 
-          onPress = { () => navigation.openDrawer()}
-          /> */}
+    
           </View>
         ),
-        headerRight: () => (
-        <View style={{flexDirection:'row', marginRight:10 }}>
-
-        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-           onPress = { () => {navigation.navigate('Search');}}>
-          <Avatar.Image 
-          source={require('../assets/search.png')}
-            backgroundColor = "#728FCE"
-            size={30}
-          />
-          </TouchableOpacity>
-
-          <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-           onPress={() => {navigation.navigate('Profile');}}>
-          <Avatar.Image 
-            source={{
-              url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
-            }}
-            size={30}
-          />
-          </TouchableOpacity>
-        </View>
-        )
       }}/>
     </HomeStack.Navigator>
   );
@@ -175,6 +150,27 @@ const HomeStackScreen = ({navigation}) =>(
     </RegistrationStack.Navigator>
   );
 
+  // const ClgSrchStackScreen = ({navigation}) =>(
+  //   <ClgSrchStack.Navigator screenOptions = {{
+  //     headerStyle:{
+  //       backgroundColor: '#728FCE'
+  //     },
+  //     headerTintColor: '#fff',
+  //     headerTitleStyle: {
+  //       fontWeight: 'bold'
+  //     }
+  //   }}>
+  //     <ClgSrchStack.Screen name="ClgSrch" component={ClgSrchScreen} options={{
+  //       headerLeft: () => (
+  //         <Icon.Button name="ios-menu" size={30} 
+  //         backgroundColor = "#728FCE" onPress = { () =>
+  //           navigation.openDrawer()
+  //         }></Icon.Button>
+  //       )
+  //     }}/>
+  //   </ClgSrchStack.Navigator>
+  // );
+
 
   const CollegeStackScreen = ({navigation}) =>(
     <CollegeStack.Navigator screenOptions = {{
@@ -199,28 +195,6 @@ const HomeStackScreen = ({navigation}) =>(
             </TouchableOpacity>
         </View>
       ),
-      headerRight: () => (
-      <View style={{flexDirection:'row', marginRight:10 }}>
-        
-        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-           onPress = { () => {navigation.navigate('Search');}}>
-          <Avatar.Image 
-          source={require('../assets/search.png')}
-            backgroundColor = "#728FCE"
-            size={30}
-          />
-          </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-         onPress={() => {navigation.navigate('Profile');}}>
-        <Avatar.Image 
-          source={{
-            url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
-          }}
-          size={30}
-        />
-        </TouchableOpacity>
-      </View>
-      )
     }}/>
     </CollegeStack.Navigator>
   );
@@ -248,35 +222,12 @@ const HomeStackScreen = ({navigation}) =>(
             </TouchableOpacity>
         </View>
       ),
-      headerRight: () => (
-      <View style={{flexDirection:'row', marginRight:10 }}>
-       
-       <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-           onPress = { () => {navigation.navigate('Search');}}>
-          <Avatar.Image 
-          source={require('../assets/search.png')}
-            backgroundColor = "#728FCE"
-            size={30}
-          />
-          </TouchableOpacity>
-       
-        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-         onPress={() => {navigation.navigate('Profile');}}>
-        <Avatar.Image 
-          source={{
-            url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
-          }}
-          size={30}
-        />
-        </TouchableOpacity>
-      </View>
-      )
     }}/>
     </CompanyStack.Navigator>
   );
 
-  const SearchStackScreen = ({navigation}) =>(
-    <SearchStack.Navigator screenOptions = {{
+  const ProfileStackScreen = ({navigation}) =>(
+    <ProfileStack.Navigator screenOptions = {{
       headerStyle:{
         backgroundColor: '#728FCE',
       },
@@ -285,7 +236,7 @@ const HomeStackScreen = ({navigation}) =>(
         fontWeight: 'bold'
       }
     }}>
-      <SearchStack.Screen name="Search" component={SearchScreen} options={{
+      <ProfileStack.Screen name="Profile" component={ProfileScreen} options={{
        headerLeft: () => (
         <View style={{marginLeft:10}}>
         <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
@@ -298,19 +249,6 @@ const HomeStackScreen = ({navigation}) =>(
             </TouchableOpacity>
         </View>
       ),
-      headerRight: () => (
-      <View style={{flexDirection:'row', marginRight:10 }}>
-        <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
-         onPress={() => {navigation.navigate('Profile');}}>
-        <Avatar.Image 
-          source={{
-            url: '"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqtKnc1U_Bex5Lt_z_O-JF8xXiFox92DNpg&usqp=CAU"'
-          }}
-          size={30}
-        />
-        </TouchableOpacity>
-      </View>
-      )
     }}/>
-    </SearchStack.Navigator>
+    </ProfileStack.Navigator>
   );
