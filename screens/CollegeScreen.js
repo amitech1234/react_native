@@ -18,7 +18,7 @@ const CollegeScreen = ( { navigation } ) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('http://192.168.1.8:8000/api/Collegesshow/')
+    fetch('http://192.168.1.8:8000/api/viewclgimage/')
       .then((response) => response.json())
       .then((json) => { setData(json)})
       .catch((error) => console.error(error))
@@ -46,7 +46,7 @@ const CollegeScreen = ( { navigation } ) => {
             <View style={styles.item}>
               <Image
                 style={styles.img}
-                source={require('../assets/mit.jpg')}
+                source={{ uri:item.image }}
               />
               <View>
               <TouchableOpacity>
