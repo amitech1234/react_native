@@ -3,29 +3,27 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons'
 import { View, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 import HomeScreen from './HomeScreen'
-import LoginScreen from './LoginScreen'
-import RegistrationScreen from './RegistrationScreen'
+// import LoginScreen from './LoginScreen'
+// import RegistrationScreen from './RegistrationScreen'
 import CollegeScreen from './CollegeScreen'
 import CompanyScreen from './CompanyScreen'
 import ProfileScreen from './ProfileScreen'
-// import ClgSrchScreen from './ClgSrchScreen';
-// import CmpSrchScreen from './CmpSrchScreen';
+import SearchScreen from './SearchScreen'
 import { Avatar } from 'react-native-paper';
 
 const HomeStack = createStackNavigator();
-const LoginStack = createStackNavigator();
-const RegistrationStack = createStackNavigator();
+// const LoginStack = createStackNavigator();
+// const RegistrationStack = createStackNavigator();
 const CollegeStack = createStackNavigator();
 const CompanyStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
-// const ClgSrchStack = createStackNavigator();
-// const CmpSrchStack = createStackNavigator();
+const SearchStack = createStackNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
-
 
 const MainTabScreen = () => (
     <Tab.Navigator
@@ -74,7 +72,12 @@ const MainTabScreen = () => (
           ),
         }}
       />
-    </Tab.Navigator>
+      {/* <Tab.Screen
+        labeled = "false"
+        name="Search"
+        component={SearchStackScreen}
+      /> */}
+</Tab.Navigator>
 );
 
 export default MainTabScreen;
@@ -107,51 +110,38 @@ const HomeStackScreen = ({navigation}) =>(
       }}/>
     </HomeStack.Navigator>
   );
-  
-  const LoginStackScreen = ({navigation}) =>(
-    <LoginStack.Navigator screenOptions = {{
-      headerStyle:{
-        backgroundColor: '#728FCE'
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold'
-      }
-    }}>
-      <LoginStack.Screen name="Login" component={LoginScreen} options={{
-        headerLeft: () => (
-          <Icon.Button name="ios-menu" size={30} 
-          backgroundColor = "#728FCE" onPress = { () =>
-            navigation.openDrawer()
-          }></Icon.Button>
-        )
-      }}/>
-    </LoginStack.Navigator>
-  );
-  
-  const RegistrationStackScreen = ({navigation}) =>(
-    <RegistrationStack.Navigator screenOptions = {{
-      headerStyle:{
-        backgroundColor: '#728FCE'
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold'
-      }
-    }}>
-      <RegistrationStack.Screen name="Register" component={RegistrationScreen} options={{
-        headerLeft: () => (
-          <Icon.Button name="ios-menu" size={30} 
-          backgroundColor = "#728FCE" onPress = { () =>
-            navigation.openDrawer()
-          }></Icon.Button>
-        )
-      }}/>
-    </RegistrationStack.Navigator>
-  );
 
-  // const ClgSrchStackScreen = ({navigation}) =>(
-  //   <ClgSrchStack.Navigator screenOptions = {{
+  const SearchStackScreen = ({navigation}) =>(
+    <SearchStack.Navigator screenOptions = {{
+      headerStyle:{
+        backgroundColor: '#728FCE',
+      },
+      headerTintColor: '#333 ',
+      headerTitleStyle: {
+        fontWeight: 'bold'
+      }
+    }}>
+      <SearchStack.Screen name="Search" component={SearchScreen} options={{
+        headerLeft: () => (
+          <View style={{marginLeft:10}}>
+
+            <TouchableOpacity style={{paddingHorizontal:10, marginTop:5}}
+               onPress = { () => navigation.openDrawer()}>
+              <Avatar.Image 
+                source={require('../assets/menu.png')}
+                backgroundColor = "#728FCE"
+                size={30}
+              />
+            </TouchableOpacity>
+    
+          </View>
+        ),
+      }}/>
+    </SearchStack.Navigator>
+  );
+  
+  // const LoginStackScreen = ({navigation}) =>(
+  //   <LoginStack.Navigator screenOptions = {{
   //     headerStyle:{
   //       backgroundColor: '#728FCE'
   //     },
@@ -160,7 +150,7 @@ const HomeStackScreen = ({navigation}) =>(
   //       fontWeight: 'bold'
   //     }
   //   }}>
-  //     <ClgSrchStack.Screen name="ClgSrch" component={ClgSrchScreen} options={{
+  //     <LoginStack.Screen name="Login" component={LoginScreen} options={{
   //       headerLeft: () => (
   //         <Icon.Button name="ios-menu" size={30} 
   //         backgroundColor = "#728FCE" onPress = { () =>
@@ -168,9 +158,29 @@ const HomeStackScreen = ({navigation}) =>(
   //         }></Icon.Button>
   //       )
   //     }}/>
-  //   </ClgSrchStack.Navigator>
+  //   </LoginStack.Navigator>
   // );
-
+  
+  // const RegistrationStackScreen = ({navigation}) =>(
+  //   <RegistrationStack.Navigator screenOptions = {{
+  //     headerStyle:{
+  //       backgroundColor: '#728FCE'
+  //     },
+  //     headerTintColor: '#fff',
+  //     headerTitleStyle: {
+  //       fontWeight: 'bold'
+  //     }
+  //   }}>
+  //     <RegistrationStack.Screen name="Register" component={RegistrationScreen} options={{
+  //       headerLeft: () => (
+  //         <Icon.Button name="ios-menu" size={30} 
+  //         backgroundColor = "#728FCE" onPress = { () =>
+  //           navigation.openDrawer()
+  //         }></Icon.Button>
+  //       )
+  //     }}/>
+  //   </RegistrationStack.Navigator>
+  // );
 
   const CollegeStackScreen = ({navigation}) =>(
     <CollegeStack.Navigator screenOptions = {{
