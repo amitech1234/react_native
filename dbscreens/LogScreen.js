@@ -56,11 +56,11 @@ class Login extends React.Component {
   {
     let user={}
     // user.name=this.state.name,
-    user.email=this.state.email,
+    user.username=this.state.email,
     user.password=this.state.password
     console.warn(user);
 
-    fetch('http://192.168.1.6:8000/api/login', {
+    fetch('http://192.168.15.93:8000/api/userlogin', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',

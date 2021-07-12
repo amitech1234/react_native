@@ -23,9 +23,9 @@ class StudRegistration extends React.Component {
   {
     super()
     this.state={
-      name:'',
-      email:'',
-      password:'',
+      full_name:'',
+      uemail_id:'',
+      upassword:'',
     }
     // this.state = {
     //   radioButton:'',
@@ -41,44 +41,45 @@ class StudRegistration extends React.Component {
 
   updateValue(text,field){
 
-    if(field=='name')
+    if(field=='full_name')
     {
       this.setState({
-        name:text,
+        full_name:text,
       })
     }
-    else if(field=='email')
+    else if(field=='uemail_id')
     {
       this.setState({
-        email:text,
+        uemail_id:text,
       })
     }
-    else if(field=='password')
+    else if(field=='upassword')
     {
       this.setState({
-        password:text,
+        upassword:text,
       })
     }
 
   }
   submit()
   {
-    let user={}
-    user.name=this.state.name,
-    user.email=this.state.email,
-    user.password=this.state.password
-    console.warn(user);
+    let users={}
+    users.full_name=this.state.full_name,
+    users.uemail_id=this.state.uemail_id,
+    users.upassword=this.state.upassword
+    console.warn(users);
 
-    fetch('http://192.168.1.9:8000/api/register', {
+    fetch('http://192.168.15.93:8000/api/UserAdd', {
       method: 'POST', // or 'PUT'
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(users),
     })
     .then(response => response.json())
-    .then(user => {
-      console.log('Success:', user);
+    .then(users => {
+      console.log('Success:', users);
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -114,7 +115,7 @@ class StudRegistration extends React.Component {
           <TextInput
             placeholder="Name"
             style={styles.textInput}
-            onChangeText={(text)=>this.updateValue(text,'name')}
+            onChangeText={(text)=>this.updateValue(text,'full_name')}
             />
           </View>
 
@@ -132,7 +133,7 @@ class StudRegistration extends React.Component {
           <TextInput
             placeholder="Email"
             style={styles.textInput}
-            onChangeText={(text)=>this.updateValue(text,'email')}
+            onChangeText={(text)=>this.updateValue(text,'uemail_id')}
             />
         </View>
 
@@ -185,7 +186,7 @@ class StudRegistration extends React.Component {
           secureTextEntry
           placeholder="Password"
           style={styles.textInput}
-          onChangeText={(text)=>this.updateValue(text,'password')}
+          onChangeText={(text)=>this.updateValue(text,'upassword')}
           />
         </View>
 
@@ -204,7 +205,7 @@ class StudRegistration extends React.Component {
           secureTextEntry
           placeholder="Confirm Password"
           style={styles.textInput}
-          onChangeText={(text)=>this.updateValue(text,'password')}
+          onChangeText={(text)=>this.updateValue(text,'upassword')}
           />
         </View>
 

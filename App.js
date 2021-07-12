@@ -22,17 +22,17 @@ const Drawer = createDrawerNavigator();
 const App = () => {
 
   return (
-      <NavigationContainer>
-          {/* <RootStackScreen/>  */}
-                <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-                <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
-                <Drawer.Screen name="Home" component = { HomeScreen } />
-                <Drawer.Screen name="Profile" component = { ProfileScreen } />
-                <Drawer.Screen name="Bookmarks" component = { BookmarkScreen } />
-                <Drawer.Screen name="Settings" component = { SettingsScreen } />
-                <Drawer.Screen name="Search" component = { SearchScreen } />
-             </Drawer.Navigator>
-    </NavigationContainer>
+       <NavigationContainer>
+          <RootStackScreen/> 
+                {/* // <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+                // <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
+                // <Drawer.Screen name="Home" component = { HomeScreen } />
+                // <Drawer.Screen name="Profile" component = { ProfileScreen } />
+                // <Drawer.Screen name="Bookmarks" component = { BookmarkScreen } />
+                // <Drawer.Screen name="Settings" component = { SettingsScreen } />
+                // <Drawer.Screen name="Search" component = { SearchScreen } />
+            //  </Drawer.Navigator> */}
+     </NavigationContainer>
   );
 }
 export default App;

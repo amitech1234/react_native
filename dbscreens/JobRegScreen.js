@@ -64,12 +64,12 @@ class JobRegistration extends React.Component {
   submit()
   {
     let user={}
-    user.name=this.state.name,
-    user.email=this.state.email,
-    user.password=this.state.password
+    user.full_name=this.state.name,
+    user.uemail_id=this.state.email,
+    user.upassword=this.state.password
     console.warn(user);
 
-    fetch('http://192.168.1.9:8000/api/register', {
+    fetch('http://192.168.15.93:8000/api/UserAdd',{
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
