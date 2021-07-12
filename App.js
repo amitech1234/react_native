@@ -6,15 +6,13 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { createDrawerNavigator} from '@react-navigation/drawer';
 import MainTabScreen from './screens/MainTabScreen';
-
 import { DrawerContent } from './screens/DrawerContent'
 import HomeScreen from './screens/HomeScreen'
 import ProfileScreen from './screens/ProfileScreen'
-import BookmarkScreen from './screens/BookmarkScreen'
-import SettingsScreen from './screens/SettingsScreen'
-import SearchScreen from './screens/SearchScreen'
-// import LoginScreen from './screens/LoginScreen'
-// import RegistrationScreen from './screens/RegistrationScreen'
+import ViewCompanyScreen from './screens/ViewCompanyScreen'
+import ViewCollegeScreen from './screens/ViewCollegeScreen'
+import ClgSearchScreen from './screens/ClgSearchScreen'
+import CmpSearchScreen from './screens/CmpSearchScreen'
 import RootStackScreen from './screens/RootStackScreen';
 
 const Drawer = createDrawerNavigator();
@@ -26,11 +24,12 @@ const App = () => {
           {/* <RootStackScreen/>  */}
                 <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
                 <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
-                <Drawer.Screen name="Home" component = { HomeScreen } />
+                <Drawer.Screen name="Home" component = { HomeScreen }  options={{ swipeEnabled: false }} />
                 <Drawer.Screen name="Profile" component = { ProfileScreen } />
-                <Drawer.Screen name="Bookmarks" component = { BookmarkScreen } />
-                <Drawer.Screen name="Settings" component = { SettingsScreen } />
-                <Drawer.Screen name="Search" component = { SearchScreen } />
+                <Drawer.Screen name="ViewCmp" component = { ViewCompanyScreen } />
+                <Drawer.Screen name="ViewClg" component = { ViewCollegeScreen } />
+                <Drawer.Screen name="ClgSearch" component = { ClgSearchScreen } />
+                <Drawer.Screen name="CmpSearch" component = { CmpSearchScreen } />
              </Drawer.Navigator>
     </NavigationContainer>
   );

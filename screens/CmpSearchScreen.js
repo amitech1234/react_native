@@ -12,24 +12,28 @@ import filter from 'lodash.filter';
 
 const API_ENDPOINT = 'http://192.168.1.8:8000/api/searchclg/'
 
-const SearchScreen = ( { navigation } ) => {
+// const ClgSearchScreen = ( { navigation } ) => {
+  export default function ClgSearchScreen({ navigation }) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
   const [fullData, setFullData] = useState([]);
-
   
     // state variables defined
 
     useEffect(() => {
       setIsLoading(true);
-  
+    
       fetch(API_ENDPOINT)
         .then(response => response.json())
-        .then(results => {
-          setData(results);
+        .then(response => {
+          setData(response.results);
+    
+          // ADD THIS
+          setFullData(response.results);
+    
           setIsLoading(false);
         })
         .catch(err => {
@@ -84,7 +88,7 @@ const SearchScreen = ( { navigation } ) => {
             autoCapitalize="none"
             autoCorrect={false}
             clearButtonMode="always"
-            // value={query}
+            value={query}
             onChangeText={queryText => handleSearch(queryText)}
             placeholder="Search"
             style={styles.search}
@@ -92,29 +96,27 @@ const SearchScreen = ( { navigation } ) => {
         </View>
       );
     }
-    
-    function handleSearch(text) {
+  }
+const handleSearch = text => {
+  const [fullData, setFullData] = useState([]);
+  
+  const formattedQuery = text.toLowerCase();
+  const filteredData = filter(fullData, user => {
+    return contains(user, formattedQuery);
+  });
+  setData(filteredData);
+  setQuery(text);
+};
 
-      const formattedQuery = text.toLowerCase();
-      const filteredData = filter(fullData, user => {
-        return contains(user, formattedQuery);
-      });
-      setData(filteredData);
-      setQuery(text);
-    };
-    
-    function contains({ name, email }, query) {
-      const { c_name } = name;
-    
-      // || cemail_id.includes(query)
-      if (c_name.includes(query) ) {
-        return true;
-      }
-    
-      return false;
-    };
-}
-export default SearchScreen;
+const contains = ({ name }, query) => {
+  const { c_name } = name;
+
+  if (c_name.includes(query) ) {
+    return true;
+  }
+
+  return false;
+};
 
 const styles = StyleSheet.create({
   container: {

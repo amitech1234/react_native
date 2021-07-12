@@ -69,7 +69,7 @@ class StudRegistration extends React.Component {
     user.password=this.state.password
     console.warn(user);
 
-    fetch('http://192.168.1.9:8000/api/register', {
+    fetch('http://192.168.1.8:8000/api/UserAdd/', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
