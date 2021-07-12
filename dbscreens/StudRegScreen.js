@@ -4,9 +4,9 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity, 
-  Vibration, 
-  TextInput, 
+  TouchableOpacity,
+  Vibration,
+  TextInput,
   RadioGroup,
   Button,
   CheckBox
@@ -93,11 +93,11 @@ class StudRegistration extends React.Component {
         <Animatable.View
           animation="zoomIn"
          style={styles.header}>
-        <Text style={ styles.text_header}>Student Registration Form</Text> 
+        <Text style={ styles.text_header}>Student Registration Form</Text>
         </Animatable.View>
 
         <Animatable.View
-        animation="fadeInUpBig" 
+        animation="fadeInUpBig"
         style={styles.footer}>
 
 
@@ -121,8 +121,8 @@ class StudRegistration extends React.Component {
 
           <Text style={[styles.text_footer, {
             marginTop: 20
-          }]}>Email</Text>      
-          <View style={styles.action}>   
+          }]}>Email</Text>
+          <View style={styles.action}>
 
           <FontAwsome
               name="user-o"
@@ -139,11 +139,11 @@ class StudRegistration extends React.Component {
 
         {/* <Text style={[styles.text_footer, {
             marginTop: 20
-          }]}>User Type</Text>  
+          }]}>User Type</Text>
 
           <View style={styles.action}>
-          
-          <CheckBox 
+
+          <CheckBox
                 value={!this.state.check}
                 title='Student'
                 checkedIcon='dot-circle-o'
@@ -156,8 +156,8 @@ class StudRegistration extends React.Component {
                 <Text>Student</Text>
             </View>
             <View style={styles.action}>
-            
-            <CheckBox 
+
+            <CheckBox
                 value={this.state.check}
                 title='JobSeeker'
                 checkedIcon='dot-circle-o'
@@ -165,11 +165,11 @@ class StudRegistration extends React.Component {
                 checked={this.state.radioButton === 'jobseeker'}
                 onPress={() => this.setState({radioButton: 'jobseeker'})}
                 onChange={()=>this.checkBoxTest()}
-                ></CheckBox> 
-            
+                ></CheckBox>
+
                 <Text>Job Seeker</Text>
         </View> */}
-               
+
 
         <Text style={[styles.text_footer, {
           marginTop: 20
@@ -229,7 +229,7 @@ class StudRegistration extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: '#728FCE'
   },
   header: {

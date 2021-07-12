@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import {
     ActivityIndicator,
@@ -28,7 +27,7 @@ const CollegeScreen = ( { navigation } ) => {
   return (
     
     <View>
-      <View style={styles.searchView}>
+      {/* <View style={styles.searchView}>
         <TextInput 
           placeholder="Type here.."
           // value={value}
@@ -36,12 +35,12 @@ const CollegeScreen = ( { navigation } ) => {
         />
         <View style={styles.searchImgView}>
           <TouchableOpacity
-          onPress={()=>navigation.navigate('Search')}
+          onPress={()=>navigation.navigate('ClgSearch')}
           >
             <Icon name="md-search" size={26} />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
       {isLoading ? 
       <ActivityIndicator 
         size="large" 
@@ -54,11 +53,20 @@ const CollegeScreen = ( { navigation } ) => {
           renderItem={({ item }) => (
             <View style={styles.item}>
               <Image
-                style={styles.img}
-                source={{ uri:item.image }}
+                // style={styles.img}
+                source={{ uri: item.image }}
+                style={{ width: 40, height: 40 }}
               />
               <View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => { 
+                  navigation.navigate( 'ViewCmp', {
+                    name: item.c_name,
+                    addr: item.caddress,
+                    email: item.cemail_id
+                 });
+                }}
+              >
             <Text style={styles.text_header}>{item.c_name}</Text>
             </TouchableOpacity>
             <Text style={styles.text_footer}>{item.caddress}</Text>

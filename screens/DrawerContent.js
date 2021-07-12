@@ -93,7 +93,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Bookmarks"
-                            onPress={() => {props.navigation.navigate('Bookmarks')}}
+                            onPress={() => {props.navigation.navigate('ViewCmp')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -104,7 +104,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Settings"
-                            onPress={() => {props.navigation.navigate('Settings')}}
+                            onPress={() => {props.navigation.navigate('ViewClg')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -115,7 +115,18 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="Search"
-                            onPress={() => {props.navigation.navigate('Search')}}
+                            onPress={() => {props.navigation.navigate('ClgSearch')}}
+                        />
+                        <DrawerItem 
+                            icon={({color, size}) => (
+                                <Icon 
+                                name="card-search" 
+                                color={color}
+                                size={size}
+                                />
+                            )}
+                            label="Search"
+                            onPress={() => {props.navigation.navigate('CmpSearch')}}
                         />
                     </Drawer.Section>
                     <Drawer.Section title="Preferences">

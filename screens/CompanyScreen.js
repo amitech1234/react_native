@@ -25,7 +25,7 @@ const CompanyScreen = ( { navigation } ) => {
 
   return (
     <View>
-      <View style={styles.searchView}>
+      {/* <View style={styles.searchView}>
         <TextInput 
           placeholder="Type here.."
           // value={value}
@@ -33,12 +33,12 @@ const CompanyScreen = ( { navigation } ) => {
         />
         <View style={styles.searchImgView}>
           <TouchableOpacity
-            onPress={()=>navigation.navigate('Search')}
+            onPress={()=>navigation.navigate('CmpSearch')}
           >
             <Icon name="md-search" size={26} />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
       {isLoading ? <ActivityIndicator 
         size="large" 
         color="#728FCE" 
@@ -54,7 +54,15 @@ const CompanyScreen = ( { navigation } ) => {
                 source={require('../assets/fyf.jpg')}
               />
               <View>
-              <TouchableOpacity>
+              <TouchableOpacity 
+                onPress={() => { 
+                  navigation.navigate( 'ViewCmp', {
+                    name: item.comp_name,
+                    addr: item.caddress,
+                    email: item.cemail
+                 });
+                }}
+              >
                 <Text style={styles.text_header}>{item.comp_name}</Text>
               </TouchableOpacity>
             <Text style={styles.text_footer}>{item.caddress}</Text>
