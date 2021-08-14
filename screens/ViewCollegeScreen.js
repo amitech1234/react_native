@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, TextInput} from 'react-native';
 
-const ViewCollegeScreen = ( { navigation } ) => {
+const ViewCollegeScreen = ( {  route, navigation } ) => {
   const { name, addr, email } = route.params;
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
@@ -11,7 +11,7 @@ const ViewCollegeScreen = ( { navigation } ) => {
     </View>
   );
 }
-
+ 
   export default ViewCollegeScreen;
 
   const styles = StyleSheet.create({

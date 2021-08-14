@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import filter from 'lodash.filter';
 
-const API_ENDPOINT = 'http://192.168.1.8:8000/api/searchclg/'
+const API_ENDPOINT = 'http://192.168.1.14:8000/api/searchclg/'
 
 const ClgSearchScreen = ( { navigation } ) => {
 

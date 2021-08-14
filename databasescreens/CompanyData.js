@@ -1,62 +1,70 @@
-import React from 'react'
+import { SlideFromRightIOS } from '@react-navigation/stack/lib/typescript/src/TransitionConfigs/TransitionPresets';
+import React, { Component } from 'react'
 import {
         View,
         Text,
         FlatList,
         StyleSheet,
-        ActivityIndicator
+        ActivityIndicator,
+        SafeAreaView,
+        Image,
      } from 'react-native';
 
+
 class CompanyData extends React.Component {
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            isloading: true,
-            dataSource: null,
+    constructor() {
+        super()
+        this.state = {
+            dataSourse: []
         }
     }
-    async componentDidMount()
-    {
-        const url = ' http://192.168.1.8:8000/api/cldis/'
+
+    renderItemv= ({ item }) => {
+        return(
+            <View>
+                {/* <Image 
+                source={{ uri:  item}}
+                /> */}
+                <Text>
+                    { item.c_name}
+                </Text>
+                <Text>
+                    { item.clocation}
+                </Text>
+            </View>
+        )
+    }
+
+    componentDidMount() {
+        const url = 'http://192.168.1.8:8000/api/Collegesshow/'
         fetch(url)
         .then((response) => response.json())
-        .then((responseJson) =>{
-
-            this.setState({
-                dataSource: responseJson.response,
-                isloading: false,
+        .then((responseJson) => {
+            this.SsetState({
+                dataSourse: responseJson.
             })
+
         })
         .catch((error) => {
-            alert("Error connection" +error);
+            console.log(error)
         })
-        // const responseJson = await response.json();   
     }
-   render(){
 
-        if(this.state.isloading){
-            return(
-                <View style={styles.container}>
-                    <ActivityIndicator/>
-                </View>
-            )
-        } else {
+    render() {
+        return (
+            <View style={styles.container}>
+                <FlatList
+                    data={this.state.dataSourse}
+                    renderItem={this.renderItem}
+                />
+            </View>
+        )
+    }
 
-            let company = this.state.dataSource.map((val, key) => {
-                return <View key={key} style={styles.item}>
-                    <Text>{val.c_name}</Text>
-                </View>
-            });        
-
-            return(
-                <View style={styles.container}>
-                    {company}
-                </View>
-            );
-        }
-   }
 }
+
+export default CompanyData;
+
 const styles = StyleSheet.create({
     container: {
         flex:1,
@@ -77,5 +85,3 @@ const styles = StyleSheet.create({
         //borderBottomColor: '#728FCE',
     }
 })
-
-export default CompanyData;

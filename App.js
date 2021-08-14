@@ -21,15 +21,21 @@ const App = () => {
 
   return (
        <NavigationContainer>
-          <RootStackScreen/>
-                {/* // <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-                // <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } />
-                // <Drawer.Screen name="Home" component = { HomeScreen } />
-                // <Drawer.Screen name="Profile" component = { ProfileScreen } />
-                // <Drawer.Screen name="Bookmarks" component = { BookmarkScreen } />
-                // <Drawer.Screen name="Settings" component = { SettingsScreen } />
-                // <Drawer.Screen name="Search" component = { SearchScreen } />
-            //  </Drawer.Navigator> */}
+          {/* <RootStackScreen/> */}
+                 <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+                 <Drawer.Screen name="HomeDrawer" component = { MainTabScreen } 
+                 options={({ route, navigation }) => {
+                    return {
+                      swipeEnabled: false,
+                    };
+                  }}/>
+                 <Drawer.Screen name="Home" component = { HomeScreen } />
+                 <Drawer.Screen name="Profile" component = { ProfileScreen } />
+                 <Drawer.Screen name="CmpSearch" component = { CmpSearchScreen } />
+                 <Drawer.Screen name="ClgSearch" component = { ClgSearchScreen } />
+                 <Drawer.Screen name="ViewClg" component = { ViewCollegeScreen } />
+                 <Drawer.Screen name="ViewCmp" component = { ViewCompanyScreen } />
+              </Drawer.Navigator>
      </NavigationContainer>
   );
 }
